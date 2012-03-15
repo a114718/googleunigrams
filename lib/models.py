@@ -1,6 +1,6 @@
 from sqlalchemy import create_engine
 from sqlalchemy.engine.url import URL
-from sqlalchemy import Column, Integer, String, Float, ForeignKey
+from sqlalchemy import Column, Integer, Unicode, Float, ForeignKey
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy.orm import relationship, backref
 from sqlalchemy.ext.declarative import declarative_base
@@ -26,7 +26,7 @@ class Frequency(Base):
 class Wordform(Base):
 	__tablename__ = 'wordform'
 	id = Column(Integer, primary_key=True)
-	text = Column(String)
+	text = Column(Unicode(255))
 	frequency = relationship("Frequency")
 
 	def __init__(self, id, text):
